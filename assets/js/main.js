@@ -86,6 +86,47 @@
       return;
     }
 
+    var stage = group.querySelector("[data-tab-stage]");
+    var inlineTabsMedia = win.matchMedia("(max-width: 1080px)");
+    var panels = tabs
+      .map(function (tab) {
+        var panelId = tab.getAttribute("aria-controls");
+        return panelId ? doc.getElementById(panelId) : null;
+      })
+      .filter(Boolean);
+
+    var restorePanelsToStage = function () {
+      if (!stage) {
+        return;
+      }
+
+      panels.forEach(function (panel) {
+        if (panel.parentNode !== stage) {
+          stage.appendChild(panel);
+        }
+      });
+    };
+
+    var syncInlinePanelPlacement = function (activeTab) {
+      if (!stage) {
+        return;
+      }
+
+      restorePanelsToStage();
+
+      if (!inlineTabsMedia.matches || !activeTab) {
+        return;
+      }
+
+      var panelId = activeTab.getAttribute("aria-controls");
+      var activePanel = panelId ? doc.getElementById(panelId) : null;
+      var slot = activeTab.closest("[data-tab-slot]");
+
+      if (activePanel && slot && activePanel.parentNode !== slot) {
+        slot.appendChild(activePanel);
+      }
+    };
+
     var activateTab = function (nextTab, moveFocus) {
       tabs.forEach(function (tab) {
         var isActive = tab === nextTab;
@@ -101,6 +142,8 @@
           panel.classList.toggle("is-active", isActive);
         }
       });
+
+      syncInlinePanelPlacement(nextTab);
 
       if (moveFocus) {
         nextTab.focus();
@@ -137,9 +180,40 @@
     }) || tabs[0];
 
     activateTab(defaultTab, false);
+
+    var syncActiveTabLayout = function () {
+      var activeTab = tabs.find(function (tab) {
+        return tab.getAttribute("aria-selected") === "true";
+      }) || defaultTab;
+
+      activateTab(activeTab, false);
+    };
+
+    if (inlineTabsMedia.addEventListener) {
+      inlineTabsMedia.addEventListener("change", syncActiveTabLayout);
+    } else if (inlineTabsMedia.addListener) {
+      inlineTabsMedia.addListener(syncActiveTabLayout);
+    }
   }
 
   doc.querySelectorAll("[data-tab-group]").forEach(initTabGroup);
+
+  var faqItems = Array.prototype.slice.call(doc.querySelectorAll(".faq-list .faq-item"));
+  if (faqItems.length) {
+    faqItems.forEach(function (item) {
+      item.addEventListener("toggle", function () {
+        if (!item.open) {
+          return;
+        }
+
+        faqItems.forEach(function (otherItem) {
+          if (otherItem !== item) {
+            otherItem.open = false;
+          }
+        });
+      });
+    });
+  }
 
   var revealItems = doc.querySelectorAll(".reveal");
   if (!prefersReducedMotion && "IntersectionObserver" in win) {
