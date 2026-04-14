@@ -492,8 +492,9 @@ p{font-size:clamp(16px,1.22vw,20px);line-height:1.68;color:var(--muted)}
 .footer-links li,.footer-links a{font-size:15px;line-height:1.6;color:var(--muted)}
 .footer-links a:hover,.footer-links a:focus-visible{color:var(--accent-deep)}
 
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
-.reveal.is-visible{opacity:1;transform:translateY(0)}
+.reveal{opacity:1;transform:none}
+html.js .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+html.js .reveal.is-visible{opacity:1;transform:translateY(0)}
 
 @keyframes panelFade{
   from{opacity:0;transform:translateY(10px)}
@@ -572,5 +573,5 @@ p{font-size:clamp(16px,1.22vw,20px);line-height:1.68;color:var(--muted)}
     transition-duration:.01ms!important;
     scroll-behavior:auto!important
   }
-  .reveal{opacity:1;transform:none}
+  .reveal,html.js .reveal{opacity:1;transform:none}
 }
