@@ -170,7 +170,7 @@
 
           <div class="header-actions">
             <button class="header-call-link" type="button" aria-disabled="true" data-book-call-placeholder>
-              Book a Builder Call
+              Book a Call
             </button>
             <a class="button button-primary header-cta" href="#send-plans" data-open-form data-cta-source="header_send_plans">
               Send Plans
@@ -190,12 +190,12 @@
         <div class="hero-copy reveal">
           <h1>Permit-ready steel framing partner for ADU builders</h1>
           <p class="hero-subhead">
-            Structural documentation, Title 24 inputs, installation support, and inspection guidance organized around one framing system.
+            3D BIM model, Structural documentation, Title 24 inputs, installation and inspection support.
           </p>
 
           <div class="hero-actions">
             <a class="button button-primary button-large" href="#send-plans" data-open-form data-cta-source="hero_send_plans">
-              Send Plans for Review
+              Get an Offer
             </a>
             <button class="button button-secondary button-large button-placeholder" type="button" aria-disabled="true" data-book-call-placeholder>
               Book a Builder Call
@@ -274,27 +274,39 @@
 
         <div class="tab-group reveal" data-tab-group>
           <div class="segmented-controls segmented-controls--modules" role="tablist" aria-label="Builder support modules">
-            <button class="segment-button" type="button" role="tab" id="workflow-tab-permit" aria-selected="true" aria-controls="workflow-panel-permit" tabindex="0" data-tab-target="workflow-panel-permit">
-              Frame + Permit Pack
-            </button>
-            <button class="segment-button" type="button" role="tab" id="workflow-tab-field" aria-selected="false" aria-controls="workflow-panel-field" tabindex="-1" data-tab-target="workflow-panel-field">
-              Installation Support
-            </button>
-            <button class="segment-button" type="button" role="tab" id="workflow-tab-inspection" aria-selected="false" aria-controls="workflow-panel-inspection" tabindex="-1" data-tab-target="workflow-panel-inspection">
-              Inspection Pack
-            </button>
-            <button class="segment-button" type="button" role="tab" id="workflow-tab-proposal" aria-selected="false" aria-controls="workflow-panel-proposal" tabindex="-1" data-tab-target="workflow-panel-proposal">
-              Builder Proposal Pack
-            </button>
-            <button class="segment-button" type="button" role="tab" id="workflow-tab-mep" aria-selected="false" aria-controls="workflow-panel-mep" tabindex="-1" data-tab-target="workflow-panel-mep">
-              Pre-Made Openings for MEP
-            </button>
-            <button class="segment-button" type="button" role="tab" id="workflow-tab-delivery" aria-selected="false" aria-controls="workflow-panel-delivery" tabindex="-1" data-tab-target="workflow-panel-delivery">
-              Guaranteed On-Time Delivery
-            </button>
+            <div class="segment-item" data-tab-slot>
+              <button class="segment-button" type="button" role="tab" id="workflow-tab-permit" aria-selected="true" aria-controls="workflow-panel-permit" tabindex="0" data-tab-target="workflow-panel-permit">
+                Frame + Permit Pack
+              </button>
+            </div>
+            <div class="segment-item" data-tab-slot>
+              <button class="segment-button" type="button" role="tab" id="workflow-tab-field" aria-selected="false" aria-controls="workflow-panel-field" tabindex="-1" data-tab-target="workflow-panel-field">
+                Installation Support
+              </button>
+            </div>
+            <div class="segment-item" data-tab-slot>
+              <button class="segment-button" type="button" role="tab" id="workflow-tab-inspection" aria-selected="false" aria-controls="workflow-panel-inspection" tabindex="-1" data-tab-target="workflow-panel-inspection">
+                Inspection Pack
+              </button>
+            </div>
+            <div class="segment-item" data-tab-slot>
+              <button class="segment-button" type="button" role="tab" id="workflow-tab-proposal" aria-selected="false" aria-controls="workflow-panel-proposal" tabindex="-1" data-tab-target="workflow-panel-proposal">
+                Builder Proposal Pack
+              </button>
+            </div>
+            <div class="segment-item" data-tab-slot>
+              <button class="segment-button" type="button" role="tab" id="workflow-tab-mep" aria-selected="false" aria-controls="workflow-panel-mep" tabindex="-1" data-tab-target="workflow-panel-mep">
+                Pre-Made Openings for MEP
+              </button>
+            </div>
+            <div class="segment-item" data-tab-slot>
+              <button class="segment-button" type="button" role="tab" id="workflow-tab-delivery" aria-selected="false" aria-controls="workflow-panel-delivery" tabindex="-1" data-tab-target="workflow-panel-delivery">
+                Guaranteed On-Time Delivery
+              </button>
+            </div>
           </div>
 
-          <div class="showcase-stage">
+          <div class="showcase-stage" data-tab-stage>
             <article class="showcase-panel showcase-panel--module is-active" id="workflow-panel-permit" role="tabpanel" aria-labelledby="workflow-tab-permit" data-tab-panel>
               <div class="module-card">
                 <span class="module-card__eyebrow">Pack 01</span>
@@ -379,13 +391,15 @@
             <article class="showcase-panel showcase-panel--module" id="workflow-panel-delivery" role="tabpanel" aria-labelledby="workflow-tab-delivery" data-tab-panel hidden>
               <div class="module-card">
                 <span class="module-card__eyebrow">Delivery guarantee</span>
-                <div class="module-card__split">
-                  <div class="module-card__content">
-                    <h3>Guaranteed on-time delivery.</h3>
-                  </div>
-                  <p class="module-card__aside">
-                    If ECOLIT misses the committed delivery window, your frame package is discounted 20%.
-                  </p>
+                <div class="module-card__content">
+                  <h3>Guaranteed on-time delivery</h3>
+                  <p>Delivery is scheduled in line with the builder&rsquo;s pre-agreed project schedule so site readiness and framing handoff stay aligned.</p>
+                  <ul class="detail-list detail-list--module">
+                    <li>Delivery aligned to the builder&rsquo;s confirmed schedule</li>
+                    <li>Site readiness and sequencing kept in view</li>
+                    <li>Predictable handoff for framing installation</li>
+                    <li>If ECOLIT misses the committed delivery window, your frame package is discounted 20%</li>
+                  </ul>
                 </div>
               </div>
             </article>
@@ -446,19 +460,19 @@
         </div>
 
         <div class="options-grid reveal">
-          <article class="option-card">
+          <article class="option-card option-card--wide-left">
             <h3>White-Label Kit for Builders</h3>
             <p>Client-facing materials aligned to the builder brand for more authority, cleaner presentation, and stronger market positioning.</p>
           </article>
-          <article class="option-card">
+          <article class="option-card option-card--compact-right">
             <h3>Price Lock / Quote Lock</h3>
             <p>Lock pricing for 90 days so approved scope stays protected while the project moves through decisions, permitting, and scheduling.</p>
           </article>
-          <article class="option-card">
+          <article class="option-card option-card--compact-left">
             <h3>BIM Model</h3>
             <p>A true digital twin that helps with quantity takeoff, planning coordination, sequencing, and cost visibility across the project.</p>
           </article>
-          <article class="option-card">
+          <article class="option-card option-card--wide-right">
             <h3>Foam Concrete Insulation Upgrade</h3>
             <p>Comfort and acoustic upgrade for projects that need better interior feel, noise control, and premium positioning.</p>
           </article>
@@ -473,43 +487,45 @@
           <p>Designed to support predictable coordination from fabrication through final fastening.</p>
         </div>
 
-        <div class="performance-grid reveal">
-          <article class="performance-item">
-            <h3>Protected steel for long-term corrosion resistance</h3>
-            <p>
-              G90 hot-dip galvanized steel to ASTM A653/A653M by default; alternative coatings such as 55% aluminum-zinc to ASTM A792/A792M or zinc-aluminum-magnesium-coated steel available on request, subject to engineering and availability.
-            </p>
-          </article>
-          <article class="performance-item">
-            <h3>Controlled fastening logic with rivets</h3>
-            <p>
-              Controlled rivet-based assembly detail for ECOLIT framing. Rivet-based assembly reduces field fastening errors and keeps crews inside a clearer install logic.
-            </p>
-          </article>
-          <article class="performance-item">
-            <h3>Prefab profiles with utility-ready openings</h3>
-            <p>
-              Prefab steel profile with ready-made utility opening. Openings are prepared before the site tries to solve MEP conflicts with improvised cutting.
-            </p>
-          </article>
-          <article class="performance-item">
-            <h3>Clean assembly with minimal field improvisation</h3>
-            <p>
-              Standard assembly is designed to minimize or eliminate field cutting, which helps protect schedule and consistency.
-            </p>
-          </article>
-          <article class="performance-item">
-            <h3>Lightweight components for easier handling</h3>
-            <p>
-              Lightweight panels reduce handling strain and lift risk while keeping the site workflow more manageable.
-            </p>
-          </article>
-          <article class="performance-item">
-            <h3>Factory geometry for cleaner finishes</h3>
-            <p>
-              Factory-formed geometry improves alignment, finish quality, and material predictability for the builder.
-            </p>
-          </article>
+        <div class="performance-board reveal">
+          <div class="performance-grid">
+            <article class="performance-item performance-item--hero">
+              <h3>Protected steel for long-term corrosion resistance</h3>
+              <p>
+                G90 hot-dip galvanized steel to ASTM A653/A653M by default; alternative coatings such as 55% aluminum-zinc to ASTM A792/A792M or zinc-aluminum-magnesium-coated steel available on request, subject to engineering and availability.
+              </p>
+            </article>
+            <article class="performance-item performance-item--top">
+              <h3>Controlled fastening logic with rivets</h3>
+              <p>
+                Controlled rivet-based assembly detail for ECOLIT framing. Rivet-based assembly reduces field fastening errors and keeps crews inside a clearer install logic.
+              </p>
+            </article>
+            <article class="performance-item performance-item--edge">
+              <h3>Prefab profiles with utility-ready openings</h3>
+              <p>
+                Prefab steel profile with ready-made utility opening. Openings are prepared before the site tries to solve MEP conflicts with improvised cutting.
+              </p>
+            </article>
+            <article class="performance-item performance-item--mid">
+              <h3>Clean assembly with minimal field improvisation</h3>
+              <p>
+                Standard assembly is designed to minimize or eliminate field cutting, which helps protect schedule and consistency.
+              </p>
+            </article>
+            <article class="performance-item performance-item--small">
+              <h3>Lightweight components for easier handling</h3>
+              <p>
+                Lightweight panels reduce handling strain and lift risk while keeping the site workflow more manageable.
+              </p>
+            </article>
+            <article class="performance-item performance-item--wide">
+              <h3>Factory geometry for cleaner finishes</h3>
+              <p>
+                Factory-formed geometry improves alignment, finish quality, and material predictability for the builder.
+              </p>
+            </article>
+          </div>
         </div>
       </div>
     </section>
@@ -523,21 +539,29 @@
 
         <div class="tab-group homeowner-tabs reveal" data-tab-group>
           <div class="segmented-controls segmented-controls--support" role="tablist" aria-label="Homeowner support materials">
-            <button class="segment-button" type="button" role="tab" id="support-tab-durability" aria-selected="true" aria-controls="support-panel-durability" tabindex="0" data-tab-target="support-panel-durability">
-              Fire &amp; Termite Resistance
-            </button>
-            <button class="segment-button" type="button" role="tab" id="support-tab-seismic" aria-selected="false" aria-controls="support-panel-seismic" tabindex="-1" data-tab-target="support-panel-seismic">
-              Earthquake-Ready Story
-            </button>
-            <button class="segment-button" type="button" role="tab" id="support-tab-comfort" aria-selected="false" aria-controls="support-panel-comfort" tabindex="-1" data-tab-target="support-panel-comfort">
-              Eco-Friendly &amp; Sustainable
-            </button>
-            <button class="segment-button" type="button" role="tab" id="support-tab-sustainability" aria-selected="false" aria-controls="support-panel-sustainability" tabindex="-1" data-tab-target="support-panel-sustainability">
-              Mold and Mildew Protection
-            </button>
+            <div class="segment-item" data-tab-slot>
+              <button class="segment-button" type="button" role="tab" id="support-tab-durability" aria-selected="true" aria-controls="support-panel-durability" tabindex="0" data-tab-target="support-panel-durability">
+                Fire &amp; Termite Resistance
+              </button>
+            </div>
+            <div class="segment-item" data-tab-slot>
+              <button class="segment-button" type="button" role="tab" id="support-tab-seismic" aria-selected="false" aria-controls="support-panel-seismic" tabindex="-1" data-tab-target="support-panel-seismic">
+                Earthquake-Ready Story
+              </button>
+            </div>
+            <div class="segment-item" data-tab-slot>
+              <button class="segment-button" type="button" role="tab" id="support-tab-comfort" aria-selected="false" aria-controls="support-panel-comfort" tabindex="-1" data-tab-target="support-panel-comfort">
+                Eco-Friendly &amp; Sustainable
+              </button>
+            </div>
+            <div class="segment-item" data-tab-slot>
+              <button class="segment-button" type="button" role="tab" id="support-tab-sustainability" aria-selected="false" aria-controls="support-panel-sustainability" tabindex="-1" data-tab-target="support-panel-sustainability">
+                Mold and Mildew Protection
+              </button>
+            </div>
           </div>
 
-          <div class="support-stage">
+          <div class="support-stage" data-tab-stage>
             <article class="support-panel is-active" id="support-panel-durability" role="tabpanel" aria-labelledby="support-tab-durability" data-tab-panel>
               <span class="support-label">Builder proposal</span>
               <h3>Fire &amp; termite resistance</h3>
@@ -629,10 +653,7 @@
     <section class="section send-plans-section" id="send-plans">
       <div class="container">
         <div class="section-copy center reveal">
-          <h2>Send plans. We&rsquo;ll review fit, permit path, and installation model.</h2>
-          <p>
-            Share the plans, project location, and preferred support model. ECOLIT will review the framing path and recommend the right support stack for the job.
-          </p>
+          <h2>Already have a project? Send us your request and we will offer you an option using our Ecolit system.</h2>
         </div>
 
         <div class="lead-form-shell reveal">
@@ -679,18 +700,6 @@
               </div>
 
               <div class="field">
-                <label for="project-type">Project Type</label>
-                <select id="project-type" name="project_type" required>
-                  <option value="" selected disabled>Select one</option>
-                  <option value="Detached ADU">Detached ADU</option>
-                  <option value="Pre-approved ADU">Pre-approved ADU</option>
-                  <option value="Panelized / Prefab ADU">Panelized / Prefab ADU</option>
-                  <option value="Infill Home">Infill Home</option>
-                  <option value="Other">Other</option>
-                </select>
-              </div>
-
-              <div class="field">
                 <label for="build-start">Expected Build Start</label>
                 <input id="build-start" name="build_start" type="text" placeholder="Q3 2026" required>
               </div>
@@ -698,17 +707,6 @@
               <div class="field">
                 <label for="plans">Upload Plans or Current Drawing Set</label>
                 <input id="plans" name="plans" type="file" accept=".pdf,.dwg,.dxf,.zip,.jpg,.jpeg,.png" multiple required>
-              </div>
-
-              <div class="field">
-                <label for="support">Preferred Support</label>
-                <select id="support" name="support" required>
-                  <option value="" selected disabled>Select one</option>
-                  <option value="Permit Package">Permit Package</option>
-                  <option value="Permit + Field Support">Permit + Field Support</option>
-                  <option value="Turnkey Installation">Turnkey Installation</option>
-                  <option value="Not Sure Yet">Not Sure Yet</option>
-                </select>
               </div>
 
               <div class="field field-full">
