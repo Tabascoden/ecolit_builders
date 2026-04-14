@@ -5,6 +5,7 @@
 
   var header = doc.querySelector(".site-header");
   var navToggle = doc.querySelector(".nav-toggle");
+  var headerPanel = doc.querySelector(".header-panel");
   var siteNav = doc.getElementById("site-nav");
 
   function closeNav() {
@@ -18,14 +19,14 @@
 
   if (header) {
     var syncHeaderState = function () {
-      header.classList.toggle("is-scrolled", win.scrollY > 18);
+      header.classList.toggle("is-scrolled", win.scrollY > 24);
     };
 
     syncHeaderState();
     win.addEventListener("scroll", syncHeaderState, { passive: true });
   }
 
-  if (navToggle && siteNav && header) {
+  if (navToggle && header && headerPanel) {
     navToggle.addEventListener("click", function () {
       var isOpen = header.classList.toggle("is-nav-open");
       navToggle.setAttribute("aria-expanded", String(isOpen));
@@ -37,122 +38,108 @@
       }
     });
 
-    siteNav.querySelectorAll('a[href^="#"]').forEach(function (link) {
-      link.addEventListener("click", closeNav);
+    doc.addEventListener("click", function (event) {
+      if (!header.contains(event.target)) {
+        closeNav();
+      }
     });
   }
 
-  var leadSection = doc.getElementById("lead-form");
-  var leadForm = doc.querySelector(".lead-form");
-  var firstFormControl = leadForm ? leadForm.querySelector("input, select, textarea") : null;
   var ctaSourceField = doc.querySelector('input[name="cta_source"]');
+  var sendPlansSection = doc.getElementById("send-plans");
 
-  function scrollToLead(source) {
+  function scrollToSection(section, source) {
+    if (!section) {
+      return;
+    }
+
     if (ctaSourceField && source) {
       ctaSourceField.value = source;
     }
 
-    if (leadSection) {
-      leadSection.scrollIntoView({
-        behavior: prefersReducedMotion ? "auto" : "smooth",
-        block: "start"
-      });
-    }
+    section.scrollIntoView({
+      behavior: prefersReducedMotion ? "auto" : "smooth",
+      block: "start"
+    });
   }
 
   doc.querySelectorAll("[data-open-form]").forEach(function (trigger) {
     trigger.addEventListener("click", function (event) {
       var href = trigger.getAttribute("href");
-      if (href === "#lead-form") {
+      if (href === "#send-plans") {
         event.preventDefault();
-        scrollToLead(trigger.dataset.ctaSource || "direct");
+        scrollToSection(sendPlansSection, trigger.dataset.ctaSource || "direct");
+        closeNav();
       }
     });
   });
 
-  var comparisonSection = doc.querySelector(".comparison-section");
-  if (comparisonSection) {
-    var tabs = comparisonSection.querySelectorAll(".comparison-tab");
-    var panels = comparisonSection.querySelectorAll(".comparison-panel");
-
-    tabs.forEach(function (button) {
-      button.addEventListener("click", function () {
-        var tab = button.dataset.tab || "permit";
-        comparisonSection.setAttribute("data-comparison-tab", tab);
-
-        tabs.forEach(function (item) {
-          var isActive = item === button;
-          item.classList.toggle("is-active", isActive);
-          item.setAttribute("aria-selected", String(isActive));
-        });
-
-        panels.forEach(function (panel) {
-          var isActive = panel.dataset.panel === tab;
-          panel.classList.toggle("is-active", isActive);
-          if (isActive) {
-            panel.classList.add("is-visible");
-          }
-        });
-      });
+  doc.querySelectorAll("[data-book-call-placeholder]").forEach(function (trigger) {
+    trigger.addEventListener("click", function (event) {
+      event.preventDefault();
     });
+  });
 
-    comparisonSection.querySelectorAll(".comparison-visual").forEach(function (visual) {
-      var defaultSplit = Number(visual.dataset.defaultSplit || 54);
-
-      function setSplit(clientX) {
-        var rect = visual.getBoundingClientRect();
-        var ratio = (clientX - rect.left) / rect.width;
-        var split = Math.min(82, Math.max(18, ratio * 100));
-        visual.style.setProperty("--split", split.toFixed(2) + "%");
-      }
-
-      visual.style.setProperty("--split", defaultSplit + "%");
-
-      visual.addEventListener("mousemove", function (event) {
-        setSplit(event.clientX);
-      });
-
-      visual.addEventListener("mouseleave", function () {
-        visual.style.setProperty("--split", defaultSplit + "%");
-      });
-
-      visual.addEventListener("touchmove", function (event) {
-        if (event.touches && event.touches[0]) {
-          setSplit(event.touches[0].clientX);
-        }
-      }, { passive: true });
-
-      visual.addEventListener("touchend", function () {
-        visual.style.setProperty("--split", defaultSplit + "%");
-      });
-    });
-  }
-
-  doc.querySelectorAll("[data-install-switch]").forEach(function (switcher) {
-    var tabs = switcher.querySelectorAll("[data-install-tab]");
-    var panels = switcher.querySelectorAll("[data-install-panel]");
-    var defaultTab = switcher.getAttribute("data-install-default") || "supervisor";
-
-    function setInstallTab(tabName) {
-      tabs.forEach(function (tab) {
-        var isActive = tab.dataset.installTab === tabName;
-        tab.classList.toggle("is-active", isActive);
-        tab.setAttribute("aria-selected", String(isActive));
-      });
-
-      panels.forEach(function (panel) {
-        panel.classList.toggle("is-active", panel.dataset.installPanel === tabName);
-      });
+  function initTabGroup(group) {
+    var tabs = Array.prototype.slice.call(group.querySelectorAll('[role="tab"]'));
+    if (!tabs.length) {
+      return;
     }
 
-    setInstallTab(defaultTab);
+    var activateTab = function (nextTab, moveFocus) {
+      tabs.forEach(function (tab) {
+        var isActive = tab === nextTab;
+        var panelId = tab.getAttribute("aria-controls");
+        var panel = panelId ? doc.getElementById(panelId) : null;
 
-    tabs.forEach(function (tab) {
+        tab.setAttribute("aria-selected", String(isActive));
+        tab.tabIndex = isActive ? 0 : -1;
+        tab.classList.toggle("is-active", isActive);
+
+        if (panel) {
+          panel.hidden = !isActive;
+          panel.classList.toggle("is-active", isActive);
+        }
+      });
+
+      if (moveFocus) {
+        nextTab.focus();
+      }
+    };
+
+    tabs.forEach(function (tab, index) {
       tab.addEventListener("click", function () {
-        setInstallTab(tab.dataset.installTab || defaultTab);
+        activateTab(tab, false);
+      });
+
+      tab.addEventListener("keydown", function (event) {
+        var nextIndex = index;
+
+        if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+          nextIndex = (index + 1) % tabs.length;
+        } else if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+          nextIndex = (index - 1 + tabs.length) % tabs.length;
+        } else if (event.key === "Home") {
+          nextIndex = 0;
+        } else if (event.key === "End") {
+          nextIndex = tabs.length - 1;
+        } else {
+          return;
+        }
+
+        event.preventDefault();
+        activateTab(tabs[nextIndex], true);
       });
     });
-  });
+
+    var defaultTab = tabs.find(function (tab) {
+      return tab.getAttribute("aria-selected") === "true";
+    }) || tabs[0];
+
+    activateTab(defaultTab, false);
+  }
+
+  doc.querySelectorAll("[data-tab-group]").forEach(initTabGroup);
 
   var revealItems = doc.querySelectorAll(".reveal");
   if (!prefersReducedMotion && "IntersectionObserver" in win) {
@@ -165,7 +152,7 @@
       });
     }, {
       threshold: 0.16,
-      rootMargin: "0px 0px -10% 0px"
+      rootMargin: "0px 0px -8% 0px"
     });
 
     revealItems.forEach(function (item) {
@@ -178,30 +165,71 @@
   }
 
   var navLinks = Array.prototype.slice.call(doc.querySelectorAll('.site-nav a[href^="#"]'));
-  if ("IntersectionObserver" in win && navLinks.length) {
-    var sections = navLinks
-      .map(function (link) {
-        return doc.querySelector(link.getAttribute("href"));
-      })
-      .filter(Boolean);
+  var navEntries = navLinks
+    .map(function (link) {
+      var section = doc.querySelector(link.getAttribute("href"));
+      if (!section) {
+        return null;
+      }
 
-    var navObserver = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (!entry.isIntersecting) {
-          return;
-        }
-
-        navLinks.forEach(function (link) {
-          link.classList.toggle("is-active", link.getAttribute("href") === "#" + entry.target.id);
-        });
-      });
-    }, {
-      threshold: 0.45,
-      rootMargin: "-20% 0px -55% 0px"
+      return {
+        link: link,
+        section: section
+      };
+    })
+    .filter(Boolean)
+    .sort(function (a, b) {
+      return a.section.offsetTop - b.section.offsetTop;
     });
 
-    sections.forEach(function (section) {
-      navObserver.observe(section);
+  if (navLinks.length && navEntries.length) {
+    var syncActiveNav = function () {
+      var activationLine = 260;
+      var currentSection = null;
+      var smallestDistance = Number.POSITIVE_INFINITY;
+
+      navEntries.forEach(function (entry) {
+        var rect = entry.section.getBoundingClientRect();
+        var distance = Math.abs(rect.top - activationLine);
+
+        if (rect.bottom > activationLine && distance < smallestDistance) {
+          smallestDistance = distance;
+          currentSection = entry.section;
+        }
+      });
+
+      if (win.location.hash) {
+        var hashSection = doc.querySelector(win.location.hash);
+        if (hashSection) {
+          var hashRect = hashSection.getBoundingClientRect();
+          if (hashRect.top > -40 && hashRect.top < win.innerHeight * 0.4) {
+            currentSection = hashSection;
+          }
+        }
+      }
+
+      navLinks.forEach(function (link) {
+        var isActive = currentSection && link.getAttribute("href") === "#" + currentSection.id;
+        link.classList.toggle("is-active", Boolean(isActive));
+      });
+    };
+
+    syncActiveNav();
+    win.addEventListener("scroll", syncActiveNav, { passive: true });
+    win.addEventListener("resize", syncActiveNav);
+    win.addEventListener("hashchange", syncActiveNav);
+    win.addEventListener("load", syncActiveNav);
+    win.setTimeout(syncActiveNav, 0);
+    win.setTimeout(syncActiveNav, 180);
+    var navSyncPoll = win.setInterval(syncActiveNav, 250);
+    win.setTimeout(function () {
+      win.clearInterval(navSyncPoll);
+    }, 2000);
+  }
+
+  if (siteNav) {
+    siteNav.querySelectorAll('a[href^="#"]').forEach(function (link) {
+      link.addEventListener("click", closeNav);
     });
   }
 
@@ -222,9 +250,26 @@
     ctaSourceField.value = "direct";
   }
 
+  var roleField = doc.getElementById("role");
+  var homeownerHelper = doc.querySelector("[data-homeowner-helper]");
+
+  function syncRoleHelper() {
+    if (!roleField || !homeownerHelper) {
+      return;
+    }
+
+    var isHomeowner = roleField.value === "Homeowner";
+    homeownerHelper.hidden = !isHomeowner;
+  }
+
+  if (roleField) {
+    syncRoleHelper();
+    roleField.addEventListener("change", syncRoleHelper);
+  }
+
+  var leadForm = doc.querySelector(".lead-form");
   if (leadForm) {
     var feedback = leadForm.querySelector(".form-feedback");
-    var successPanel = doc.querySelector(".form-success");
     var requiredControls = Array.prototype.slice.call(leadForm.querySelectorAll("[required]"));
     var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -254,6 +299,14 @@
       return error;
     }
 
+    function hasValue(control) {
+      if (control.type === "file") {
+        return Boolean(control.files && control.files.length);
+      }
+
+      return control.value.trim() !== "";
+    }
+
     function setError(control, message, index) {
       var error = getErrorContainer(control, index);
       control.setAttribute("aria-invalid", message ? "true" : "false");
@@ -263,10 +316,10 @@
     }
 
     function validateControl(control, index) {
-      var value = control.value.trim();
       var message = "";
+      var value = control.type === "file" ? control.value : control.value.trim();
 
-      if (control.hasAttribute("required") && !value) {
+      if (control.hasAttribute("required") && !hasValue(control)) {
         message = getLabel(control) + " is required.";
       } else if (control.type === "email" && value && !emailPattern.test(value)) {
         message = "Enter a valid email address.";
@@ -311,22 +364,6 @@
       if (feedback) {
         feedback.textContent = "";
       }
-
-      leadForm.hidden = true;
-      if (successPanel) {
-        successPanel.hidden = false;
-      }
     });
   }
-
-  doc.querySelectorAll("[data-focus-form]").forEach(function (trigger) {
-    trigger.addEventListener("click", function () {
-      scrollToLead("focus_trigger");
-      if (firstFormControl) {
-        win.setTimeout(function () {
-          firstFormControl.focus();
-        }, prefersReducedMotion ? 0 : 220);
-      }
-    });
-  });
 })();
