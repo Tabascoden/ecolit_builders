@@ -27,7 +27,7 @@
     imagesrcset="assets/img/optimized/hero-frame-800.webp 800w, assets/img/optimized/hero-frame-1280.webp 1280w"
     imagesizes="(max-width: 640px) calc(100vw - 32px), (max-width: 900px) 640px, 720px">
   <script>document.documentElement.classList.add('js');</script>
-  <link rel="stylesheet" href="assets/css/main.css?v=20260415-path-dark-section">
+  <link rel="stylesheet" href="assets/css/main.css?v=20260415-performance-tight-layout">
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -339,8 +339,8 @@
                 </div>
                 <figure class="module-card__permit-media">
                   <img
-                    src="assets/img/optimized/permit-pack-800.webp"
-                    srcset="assets/img/optimized/permit-pack-480.webp 480w, assets/img/optimized/permit-pack-800.webp 800w"
+                    src="assets/img/optimized/permit-pack-800.webp?v=20260415-module-photo-refresh"
+                    srcset="assets/img/optimized/permit-pack-480.webp?v=20260415-module-photo-refresh 480w, assets/img/optimized/permit-pack-800.webp?v=20260415-module-photo-refresh 800w"
                     sizes="(max-width: 640px) calc(100vw - 80px), (max-width: 1080px) 420px, 360px"
                     alt="Preview of the ECOLIT frame and permit package"
                     width="1536"
@@ -479,8 +479,8 @@
                 </div>
                 <figure class="module-card__delivery-media">
                   <img
-                    src="assets/img/optimized/delivery-support-800.webp"
-                    srcset="assets/img/optimized/delivery-support-480.webp 480w, assets/img/optimized/delivery-support-800.webp 800w"
+                    src="assets/img/optimized/delivery-support-800.webp?v=20260415-module-photo-refresh"
+                    srcset="assets/img/optimized/delivery-support-480.webp?v=20260415-module-photo-refresh 480w, assets/img/optimized/delivery-support-800.webp?v=20260415-module-photo-refresh 800w"
                     sizes="(max-width: 640px) calc(100vw - 80px), (max-width: 1080px) 420px, 360px"
                     alt="Delivery coordination and site scheduling support for ECOLIT framing"
                     width="2048"
@@ -576,23 +576,45 @@
 
         <div class="performance-board reveal">
           <div class="performance-grid">
-            <article class="performance-item performance-item--hero">
-              <h3>Protected steel for long-term corrosion resistance</h3>
-              <p>
-                G90 hot-dip galvanized steel to ASTM A653/A653M by default; alternative coatings such as 55% aluminum-zinc to ASTM A792/A792M or zinc-aluminum-magnesium-coated steel available on request, subject to engineering and availability
-              </p>
+            <article class="performance-item performance-item--hero performance-item--media">
+              <figure class="performance-item__media-frame performance-item__media-frame--steel">
+                <img
+                  src="assets/img/optimized/performance-steel-480.webp"
+                  srcset="assets/img/optimized/performance-steel-480.webp 480w, assets/img/optimized/performance-steel-960.webp 960w"
+                  sizes="(max-width: 640px) calc(100vw - 80px), (max-width: 1080px) 520px, 640px"
+                  alt="Protected steel framing components prepared for long-term corrosion resistance"
+                  width="960"
+                  height="1440"
+                  loading="lazy"
+                  decoding="async">
+              </figure>
+              <div class="performance-item__stack">
+                <span class="performance-item__kicker">Steel Protection</span>
+                <h3>Protected steel for long-term corrosion resistance</h3>
+                <p>
+                  G90 hot-dip galvanized steel to ASTM A653/A653M by default; alternative coatings such as 55% aluminum-zinc to ASTM A792/A792M or zinc-aluminum-magnesium-coated steel available on request, subject to engineering and availability
+                </p>
+              </div>
             </article>
-            <article class="performance-item performance-item--top">
-              <h3>Controlled fastening logic with rivets</h3>
-              <p>
-                Controlled rivet-based assembly detail for ECOLIT framing. Rivet-based assembly reduces field fastening errors and keeps crews inside a clearer install logic
-              </p>
-            </article>
-            <article class="performance-item performance-item--edge">
-              <h3>Prefab profiles with utility-ready openings</h3>
-              <p>
-                Prefab steel profile with ready-made utility opening. Openings are prepared before the site tries to solve MEP conflicts with improvised cutting
-              </p>
+            <article class="performance-item performance-item--top performance-item--media">
+              <figure class="performance-item__media-frame performance-item__media-frame--rivet">
+                <img
+                  src="assets/img/optimized/performance-rivet-320.webp"
+                  srcset="assets/img/optimized/performance-rivet-320.webp 320w, assets/img/optimized/performance-rivet-640.webp 640w"
+                  sizes="(max-width: 640px) calc(100vw - 80px), (max-width: 1080px) 420px, 360px"
+                  alt="Rivet fastening detail used in the ECOLIT framing system"
+                  width="640"
+                  height="669"
+                  loading="lazy"
+                  decoding="async">
+              </figure>
+              <div class="performance-item__stack">
+                <span class="performance-item__kicker">Fastening Logic</span>
+                <h3>Controlled fastening logic with rivets</h3>
+                <p>
+                  Controlled rivet-based assembly detail for ECOLIT framing. Rivet-based assembly reduces field fastening errors and keeps crews inside a clearer install logic
+                </p>
+              </div>
             </article>
             <article class="performance-item performance-item--mid">
               <h3>Clean assembly with minimal field improvisation</h3>
@@ -606,7 +628,7 @@
                 Lightweight panels reduce handling strain and lift risk while keeping the site workflow more manageable
               </p>
             </article>
-            <article class="performance-item performance-item--wide">
+            <article class="performance-item performance-item--end">
               <h3>Factory geometry for cleaner finishes</h3>
               <p>
                 Factory-formed geometry improves alignment, finish quality, and material predictability for the builder
