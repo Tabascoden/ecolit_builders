@@ -174,14 +174,26 @@ p{font-size:clamp(15px,1.08vw,18px);line-height:1.62;color:var(--muted)}
   background-size:58px 58px
 }
 .hero-shell{
-  position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,.95fr) minmax(420px,.85fr);gap:40px 56px;align-items:center
+  position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(420px,.8fr);gap:40px 64px;align-items:center
 }
-.hero-copy{max-width:760px;display:grid;gap:24px;justify-items:start;text-align:left;margin:0}
+.hero-copy{max-width:680px;display:grid;gap:22px;justify-items:start;text-align:left;margin:0}
 .hero-copy .eyebrow{color:rgba(255,255,255,.9)}
 .hero-copy .eyebrow::before{box-shadow:none}
 .hero h1,.hero p,.hero li{color:inherit}
-.hero-copy h1{max-width:10ch}
-.hero-subhead{max-width:36ch;font-size:clamp(17px,1.3vw,20px);line-height:1.58;color:rgba(255,255,255,.82)}
+.hero-copy h1{
+  max-width:16ch;
+  font-size:clamp(42px,4.6vw,64px);
+  line-height:1.05;
+  letter-spacing:-.045em;
+  text-wrap:balance
+}
+.hero-subhead{
+  max-width:34ch;
+  font-size:clamp(17px,1.18vw,19px);
+  line-height:1.6;
+  color:rgba(255,255,255,.82);
+  text-wrap:pretty
+}
 .hero-actions{display:flex;flex-wrap:wrap;justify-content:flex-start;gap:14px}
 .hero-helper{font-size:15px;line-height:1.7;color:rgba(255,255,255,.72)}
 .hero-showcase{width:100%;max-width:720px;justify-self:end}
@@ -690,7 +702,7 @@ html.js .reveal.is-visible{opacity:1;transform:translateY(0)}
   .section{padding:92px 0}
   .hero-shell{grid-template-columns:1fr;gap:36px}
   .hero-copy{justify-items:center;text-align:center;margin:0 auto}
-  .hero-copy h1{max-width:12ch}
+  .hero-copy h1{max-width:15ch;font-size:clamp(40px,7vw,58px)}
   .hero-subhead{max-width:38ch}
   .hero-actions{justify-content:center}
   .hero-showcase{justify-self:center}
@@ -758,6 +770,7 @@ html.js .reveal.is-visible{opacity:1;transform:translateY(0)}
   .section{padding:80px 0}
   .hero{padding-top:136px;padding-bottom:84px}
   .hero-copy{justify-items:start;text-align:left}
+  .hero-copy h1{max-width:none;font-size:clamp(32px,9.4vw,44px);line-height:1.08}
   .hero-subhead,.hero-helper{max-width:none}
   .hero-actions,.form-actions{width:100%;flex-direction:column}
   .button,.button-large,.header-cta{width:100%}
