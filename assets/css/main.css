@@ -600,8 +600,9 @@ p{font-size:clamp(15px,1.04vw,18px);line-height:1.68;color:var(--muted);text-wra
 .option-card{
   position:relative;display:flex;flex-direction:column;justify-content:flex-start;gap:14px;min-height:214px;padding:30px 26px 28px;border-radius:28px;
   background:linear-gradient(180deg,rgba(163,225,75,.16) 0,rgba(255,255,255,.98) 42%,var(--surface-soft) 100%);border:1px solid var(--line);
-  box-shadow:var(--shadow)
+  box-shadow:var(--shadow);overflow:hidden
 }
+.option-card > *{position:relative;z-index:1}
 .option-card::before{
   content:none
 }
@@ -897,6 +898,7 @@ html.js .reveal.is-visible{opacity:1;transform:translateY(0)}
   .module-card__permit-media,.module-card__field-media,.module-card__inspection-media,.module-card__proposal-media,.module-card__mep-media,.module-card__delivery-media{
     width:100%;max-width:none;min-height:0;aspect-ratio:3/2;padding:8px
   }
+  .option-card{padding:24px 20px 22px;border-radius:24px}
   .module-card--permit .detail-list--module,.module-card--field .detail-list--module,.module-card--inspection .detail-list--module,.module-card--proposal .detail-list--module,.module-card--mep .detail-list--module,.module-card--delivery .detail-list--module{grid-template-columns:1fr}
   .module-card--permit .detail-list li,.module-card--field .detail-list li,.module-card--inspection .detail-list li,.module-card--proposal .detail-list li,.module-card--mep .detail-list li,.module-card--delivery .detail-list li{white-space:normal}
   .module-card p{font-size:17px}
