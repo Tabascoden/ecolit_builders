@@ -26,7 +26,7 @@
     imagesrcset="assets/img/optimized/hero-frame-800.webp 800w, assets/img/optimized/hero-frame-1280.webp 1280w"
     imagesizes="(max-width: 640px) calc(100vw - 32px), (max-width: 900px) 640px, 720px">
   <script>document.documentElement.classList.add('js');</script>
-  <link rel="stylesheet" href="assets/css/main.css?v=20260422-brandbook-style-20">
+  <link rel="stylesheet" href="assets/css/main.css?v=20260422-performance-even-grid-15">
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -542,70 +542,105 @@
           <p>Designed to support predictable coordination from fabrication through final fastening</p>
         </div>
 
-        <div class="performance-board reveal">
-          <div class="performance-grid">
-            <article class="performance-item performance-item--hero performance-item--media">
-              <figure class="performance-item__media-frame performance-item__media-frame--steel">
-                <img
-                  src="assets/img/optimized/performance-steel-480.webp"
-                  srcset="assets/img/optimized/performance-steel-480.webp 480w, assets/img/optimized/performance-steel-960.webp 960w"
-                  sizes="(max-width: 640px) calc(100vw - 80px), (max-width: 900px) calc(100vw - 64px), (max-width: 1280px) 520px, 344px"
-                  alt="Protected steel framing components prepared for long-term corrosion resistance"
-                  width="960"
-                  height="1440"
-                  loading="lazy"
-                  decoding="async">
-              </figure>
-              <div class="performance-item__stack">
-                <h3>Protected steel for long-term corrosion resistance</h3>
-                <p>
-                  G90 hot-dip galvanized steel to ASTM A653/A653M by default; alternative coatings such as 55% aluminum-zinc to ASTM A792/A792M or zinc-aluminum-magnesium-coated steel available on request, subject to engineering and availability
-                </p>
-              </div>
-            </article>
-            <article class="performance-item performance-item--top performance-item--media">
-              <figure class="performance-item__media-frame performance-item__media-frame--rivet">
-                <img
-                  src="assets/img/optimized/performance-rivet-320.webp"
-                  srcset="assets/img/optimized/performance-rivet-320.webp 320w, assets/img/optimized/performance-rivet-640.webp 640w"
-                  sizes="(max-width: 640px) calc(100vw - 80px), (max-width: 900px) calc(100vw - 64px), (max-width: 1280px) 520px, 231px"
-                  alt="Rivet fastening detail used in the ECOLIT framing system"
-                  width="640"
-                  height="669"
-                  loading="lazy"
-                  decoding="async">
-              </figure>
-              <div class="performance-item__stack">
-                <h3>Controlled fastening logic with rivets</h3>
-                <p>
-                  Rivet-based assembly reduces field fastening errors and keeps crews inside a clearer install logic
-                </p>
-              </div>
-            </article>
-            <article class="performance-item performance-item--mid">
-              <h3>Precision prefab assembly, ready to install</h3>
-              <p>
-                Every frame is prefabricated to exact project requirements and assembled on site like a kit. The system is designed for installation without cutting, drilling, or field-made adjustments, giving builders a faster, cleaner, and more predictable framing process.
-              </p>
-            </article>
-            <article class="performance-item performance-item--crew">
-              <h3>No specialized framing crew required</h3>
-              <p>
-                ECOLIT frames are designed for supervised assembly by general site labor, using a structured installation process and minimal tools beyond a rivet tool. That gives builders a more flexible labor model and the potential to reduce frame installation labor costs by up to 50%.
-              </p>
-            </article>
-            <article class="performance-item performance-item--small">
-              <h3>Lightweight components for easier handling</h3>
-              <p>
-                Lightweight panels reduce handling strain and lift risk while keeping the site workflow more manageable
-              </p>
-            </article>
-            <article class="performance-item performance-item--end">
-              <h3>Factory geometry for cleaner finishes</h3>
-              <p>
-                More accurate alignment and a cleaner substrate for finish trades help reduce rework, save material, speed up installation, and lower downstream finishing costs by up to 20%.
-              </p>
-            </article>
+        <div class="performance-shell reveal">
+          <div class="performance-shell__board">
+            <div class="performance-layout" aria-label="ECOLIT on-site performance advantages">
+              <article class="performance-panel performance-panel--wide performance-panel--steel">
+                <div class="performance-panel__head">
+                  <span class="performance-panel__index">01</span>
+                  <span class="performance-panel__rail" aria-hidden="true"></span>
+                </div>
+                <div class="performance-panel__body">
+                  <div class="performance-panel__icon-shell">
+                    <img class="performance-panel__icon" src="site_icons_svg_green/shield_icon.svg" alt="" width="1024" height="1024" loading="lazy" decoding="async" aria-hidden="true">
+                  </div>
+                  <div class="performance-panel__copy">
+                    <h3>Protected steel for long-term corrosion resistance</h3>
+                    <p>G90 hot-dip galvanized steel to ASTM A653/A653M by default; alternative coatings such as 55% aluminum-zinc to ASTM A792/A792M or zinc-aluminum-magnesium-coated steel available on request, subject to engineering and availability</p>
+                  </div>
+                </div>
+              </article>
+
+              <article class="performance-panel performance-panel--compact performance-panel--fastening">
+                <div class="performance-panel__head">
+                  <span class="performance-panel__index">02</span>
+                  <span class="performance-panel__rail" aria-hidden="true"></span>
+                </div>
+                <div class="performance-panel__body">
+                  <div class="performance-panel__icon-shell">
+                    <img class="performance-panel__icon" src="site_icons_svg_green/rivet_icon.svg" alt="" width="1024" height="1024" loading="lazy" decoding="async" aria-hidden="true">
+                  </div>
+                  <div class="performance-panel__copy">
+                    <h3>Controlled fastening logic with rivets</h3>
+                    <p>Rivet-based assembly reduces field fastening errors and keeps crews inside a clearer install logic</p>
+                  </div>
+                </div>
+              </article>
+
+              <article class="performance-panel performance-panel--wide performance-panel--geometry">
+                <div class="performance-panel__head">
+                  <span class="performance-panel__index">03</span>
+                  <span class="performance-panel__rail" aria-hidden="true"></span>
+                </div>
+                <div class="performance-panel__body">
+                  <div class="performance-panel__icon-shell">
+                    <img class="performance-panel__icon" src="site_icons_svg_green/sparkles_icon.svg" alt="" width="1024" height="1024" loading="lazy" decoding="async" aria-hidden="true">
+                  </div>
+                  <div class="performance-panel__copy">
+                    <h3>Factory geometry for cleaner finishes</h3>
+                    <p>More accurate alignment and a cleaner substrate for finish trades help reduce rework, save material, speed up installation, and lower downstream finishing costs by up to 20%.</p>
+                  </div>
+                </div>
+              </article>
+
+              <article class="performance-panel performance-panel--compact performance-panel--assembly">
+                <div class="performance-panel__head">
+                  <span class="performance-panel__index">04</span>
+                  <span class="performance-panel__rail" aria-hidden="true"></span>
+                </div>
+                <div class="performance-panel__body">
+                  <div class="performance-panel__icon-shell">
+                    <img class="performance-panel__icon" src="site_icons_svg_green/plan_icon.svg" alt="" width="1024" height="1024" loading="lazy" decoding="async" aria-hidden="true">
+                  </div>
+                  <div class="performance-panel__copy">
+                    <h3>Precision prefab assembly, ready to install</h3>
+                    <p>Every frame is prefabricated to exact project requirements and assembled on site like a kit. The system is designed for installation without cutting, drilling, or field-made adjustments, giving builders a faster, cleaner, and more predictable framing process.</p>
+                  </div>
+                </div>
+              </article>
+
+              <article class="performance-panel performance-panel--compact performance-panel--lightweight">
+                <div class="performance-panel__head">
+                  <span class="performance-panel__index">05</span>
+                  <span class="performance-panel__rail" aria-hidden="true"></span>
+                </div>
+                <div class="performance-panel__body">
+                  <div class="performance-panel__icon-shell">
+                    <img class="performance-panel__icon" src="site_icons_svg_green/leaf_icon.svg" alt="" width="1024" height="1024" loading="lazy" decoding="async" aria-hidden="true">
+                  </div>
+                  <div class="performance-panel__copy">
+                    <h3>Lightweight components for easier handling</h3>
+                    <p>Lightweight panels reduce handling strain and lift risk while keeping the site workflow more manageable</p>
+                  </div>
+                </div>
+              </article>
+
+              <article class="performance-panel performance-panel--wide performance-panel--crew">
+                <div class="performance-panel__head">
+                  <span class="performance-panel__index">06</span>
+                  <span class="performance-panel__rail" aria-hidden="true"></span>
+                </div>
+                <div class="performance-panel__body">
+                  <div class="performance-panel__icon-shell">
+                    <img class="performance-panel__icon" src="site_icons_svg_green/helmet_icon.svg" alt="" width="1024" height="1024" loading="lazy" decoding="async" aria-hidden="true">
+                  </div>
+                  <div class="performance-panel__copy">
+                    <h3>No specialized framing crew required</h3>
+                    <p>ECOLIT frames are designed for supervised assembly by general site labor, using a structured installation process and minimal tools beyond a rivet tool. That gives builders a more flexible labor model and the potential to reduce frame installation labor costs by up to 50%.</p>
+                  </div>
+                </div>
+              </article>
+            </div>
           </div>
         </div>
       </div>
