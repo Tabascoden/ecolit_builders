@@ -284,7 +284,7 @@ p{font-size:clamp(15px,1.04vw,18px);line-height:1.68;color:var(--muted);text-wra
 .segmented-controls{
   width:min(100%,1040px);margin:0 auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px
 }
-.segmented-controls--modules{align-items:stretch}
+.segmented-controls--modules{width:min(100%,980px);align-items:stretch}
 .segment-item{display:flex}
 .segment-button{
   width:100%;padding:20px;border-radius:24px;border:1px solid var(--line);background:rgba(255,255,255,.76);color:var(--muted);
@@ -292,6 +292,39 @@ p{font-size:clamp(15px,1.04vw,18px);line-height:1.68;color:var(--muted);text-wra
 }
 .segment-button[aria-selected="true"]{
   background:var(--surface);color:var(--ink);border-color:rgba(79,174,50,.3);box-shadow:var(--shadow)
+}
+.segmented-controls--modules .segment-button{
+  position:relative;display:flex;align-items:center;justify-content:center;min-height:74px;
+  padding:13px 22px 19px;text-align:center;font-size:clamp(15px,1vw,17px);font-weight:600;line-height:1.34;letter-spacing:.01em;text-wrap:balance;
+  background:linear-gradient(180deg,rgba(255,255,255,.88) 0,rgba(245,245,245,.98) 100%);
+  box-shadow:0 12px 28px rgba(43,43,43,.05);transition:transform var(--t),background-color var(--t),color var(--t),border-color var(--t),box-shadow var(--t)
+}
+.segmented-controls--modules .segment-button::after{
+  content:"";position:absolute;right:12px;bottom:11px;width:10px;height:10px;border-radius:50%;
+  border:1px solid rgba(43,43,43,.18);
+  background:linear-gradient(180deg,rgba(197,201,193,.95) 0,rgba(138,143,133,.98) 100%);
+  box-shadow:
+    inset 0 1px 1px rgba(255,255,255,.85),
+    inset 0 -1px 1px rgba(43,43,43,.2),
+    0 1px 2px rgba(43,43,43,.12);
+  transition:background-color var(--t),border-color var(--t),box-shadow var(--t),opacity var(--t)
+}
+.segmented-controls--modules .segment-button:hover,
+.segmented-controls--modules .segment-button:focus-visible{
+  transform:translateY(-2px);border-color:rgba(79,174,50,.34);background:var(--surface);box-shadow:0 18px 34px rgba(43,43,43,.08)
+}
+.segmented-controls--modules .segment-button[aria-selected="true"]{
+  background:linear-gradient(180deg,#fff 0,rgba(163,225,75,.1) 100%);border-color:rgba(79,174,50,.38);box-shadow:0 22px 42px rgba(43,43,43,.09)
+}
+.segmented-controls--modules .segment-button[aria-selected="true"]::after{
+  border-color:rgba(79,174,50,.3);
+  background:
+    radial-gradient(circle at 35% 35%,rgba(233,255,188,.98) 0 18%,rgba(163,225,75,.98) 34%,rgba(79,174,50,.98) 100%);
+  box-shadow:
+    inset 0 1px 1px rgba(255,255,255,.92),
+    inset 0 -1px 1px rgba(79,174,50,.12),
+    0 0 0 1px rgba(163,225,75,.18),
+    0 0 10px rgba(163,225,75,.32)
 }
 .segmented-controls--support{grid-template-columns:repeat(4,minmax(0,1fr))}
 .showcase-stage{position:relative}
@@ -777,6 +810,7 @@ html.js .reveal.is-visible{opacity:1;transform:translateY(0)}
   .header-cta{width:100%}
   .tab-group{gap:20px}
   .segmented-controls{width:100%;grid-template-columns:1fr;gap:12px}
+  .segmented-controls--modules .segment-button{min-height:68px;padding:13px 18px 19px;font-size:16px}
   .segment-item{display:grid;gap:12px}
   [data-tab-stage]{display:none}
   .segment-item > [data-tab-panel]{margin-top:0}
@@ -834,6 +868,8 @@ html.js .reveal.is-visible{opacity:1;transform:translateY(0)}
   .hero-company__note{justify-self:start;text-align:left}
   .hero-company__grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
   .hero-company__item strong{font-size:clamp(28px,9vw,35px);letter-spacing:.03em}
+  .segmented-controls--modules .segment-button{min-height:66px;padding:12px 16px 18px;font-size:15px}
+  .segmented-controls--modules .segment-button::after{right:9px;bottom:8px;width:9px;height:9px}
   .module-card{min-height:0;padding:24px}
   .module-card--permit,.module-card--field,.module-card--inspection,.module-card--proposal,.module-card--mep,.module-card--delivery{width:100%;padding:24px;grid-template-columns:1fr;gap:20px}
   .module-card__permit-copy,.module-card__field-copy,.module-card__inspection-copy,.module-card__proposal-copy,.module-card__mep-copy,.module-card__delivery-copy{gap:16px}
