@@ -22,9 +22,12 @@
   <link
     rel="preload"
     as="image"
-    href="assets/img/Frame%20hero.png">
+    type="image/webp"
+    href="assets/img/optimized/hero-frame-1440.webp"
+    imagesrcset="assets/img/optimized/hero-frame-768.webp 768w, assets/img/optimized/hero-frame-1440.webp 1440w"
+    imagesizes="(max-width: 640px) calc(100vw - 32px), (max-width: 900px) 640px, 720px">
   <script>document.documentElement.classList.add('js');</script>
-  <link rel="stylesheet" href="assets/css/main.css?v=20260423-font-refresh-01">
+  <link rel="stylesheet" href="assets/css/main.css?v=20260423-performance-01">
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -209,7 +212,9 @@
         <div class="hero-showcase reveal">
           <div class="hero-showcase__media">
             <img
-              src="assets/img/Frame%20hero.png"
+              src="assets/img/optimized/hero-frame-1440.webp"
+              srcset="assets/img/optimized/hero-frame-768.webp 768w, assets/img/optimized/hero-frame-1440.webp 1440w"
+              sizes="(max-width: 640px) calc(100vw - 32px), (max-width: 900px) 640px, 720px"
               alt="Steel framing structure at sunset"
               width="1672"
               height="941"
@@ -310,6 +315,7 @@
                     width="1536"
                     height="1024"
                     loading="lazy"
+                    fetchpriority="low"
                     decoding="async">
                 </figure>
               </div>
@@ -338,6 +344,7 @@
                     width="1536"
                     height="1024"
                     loading="lazy"
+                    fetchpriority="low"
                     decoding="async">
                 </figure>
               </div>
@@ -366,6 +373,7 @@
                     width="1536"
                     height="1024"
                     loading="lazy"
+                    fetchpriority="low"
                     decoding="async">
                 </figure>
               </div>
@@ -394,6 +402,7 @@
                     width="1024"
                     height="1024"
                     loading="lazy"
+                    fetchpriority="low"
                     decoding="async">
                 </figure>
               </div>
@@ -422,6 +431,7 @@
                     width="1536"
                     height="1024"
                     loading="lazy"
+                    fetchpriority="low"
                     decoding="async">
                 </figure>
               </div>
@@ -450,6 +460,7 @@
                     width="2048"
                     height="1348"
                     loading="lazy"
+                    fetchpriority="low"
                     decoding="async">
                 </figure>
               </div>
@@ -692,7 +703,7 @@
                 </div>
                 <div class="performance-panel__body">
                   <div class="performance-panel__icon-shell">
-                    <img class="performance-panel__icon" src="site_icons_green_samplehex_svg/shield_icon.svg" alt="" width="1024" height="1024" loading="lazy" decoding="async" aria-hidden="true">
+                    <img class="performance-panel__icon" src="site_icons_green_samplehex_svg/shield_icon.svg" alt="" width="1024" height="1024" loading="lazy" decoding="async" fetchpriority="low" aria-hidden="true">
                   </div>
                   <div class="performance-panel__copy">
                     <h3>Protected steel for long-term corrosion resistance</h3>
@@ -708,7 +719,7 @@
                 </div>
                 <div class="performance-panel__body">
                   <div class="performance-panel__icon-shell">
-                    <img class="performance-panel__icon" src="site_icons_green_samplehex_svg/rivet_icon.svg" alt="" width="1024" height="1024" loading="lazy" decoding="async" aria-hidden="true">
+                    <img class="performance-panel__icon" src="site_icons_green_samplehex_svg/rivet_icon.svg" alt="" width="1024" height="1024" loading="lazy" decoding="async" fetchpriority="low" aria-hidden="true">
                   </div>
                   <div class="performance-panel__copy">
                     <h3>Controlled fastening logic with rivets</h3>
@@ -724,7 +735,7 @@
                 </div>
                 <div class="performance-panel__body">
                   <div class="performance-panel__icon-shell">
-                    <img class="performance-panel__icon" src="site_icons_green_samplehex_svg/sparkles_icon.svg" alt="" width="1024" height="1024" loading="lazy" decoding="async" aria-hidden="true">
+                    <img class="performance-panel__icon" src="site_icons_green_samplehex_svg/sparkles_icon.svg" alt="" width="1024" height="1024" loading="lazy" decoding="async" fetchpriority="low" aria-hidden="true">
                   </div>
                   <div class="performance-panel__copy">
                     <h3>Factory geometry for cleaner finishes</h3>
@@ -740,7 +751,7 @@
                 </div>
                 <div class="performance-panel__body">
                   <div class="performance-panel__icon-shell">
-                    <img class="performance-panel__icon" src="site_icons_green_samplehex_svg/plan_icon.svg" alt="" width="1024" height="1024" loading="lazy" decoding="async" aria-hidden="true">
+                    <img class="performance-panel__icon" src="site_icons_green_samplehex_svg/plan_icon.svg" alt="" width="1024" height="1024" loading="lazy" decoding="async" fetchpriority="low" aria-hidden="true">
                   </div>
                   <div class="performance-panel__copy">
                     <h3>Precision prefab assembly, ready to install</h3>
@@ -756,7 +767,7 @@
                 </div>
                 <div class="performance-panel__body">
                   <div class="performance-panel__icon-shell">
-                    <img class="performance-panel__icon" src="site_icons_green_samplehex_svg/leaf_icon.svg" alt="" width="1024" height="1024" loading="lazy" decoding="async" aria-hidden="true">
+                    <img class="performance-panel__icon" src="site_icons_green_samplehex_svg/leaf_icon.svg" alt="" width="1024" height="1024" loading="lazy" decoding="async" fetchpriority="low" aria-hidden="true">
                   </div>
                   <div class="performance-panel__copy">
                     <h3>Lightweight components for easier handling</h3>
@@ -772,7 +783,7 @@
                 </div>
                 <div class="performance-panel__body">
                   <div class="performance-panel__icon-shell">
-                    <img class="performance-panel__icon" src="site_icons_green_samplehex_svg/helmet_icon.svg" alt="" width="1024" height="1024" loading="lazy" decoding="async" aria-hidden="true">
+                    <img class="performance-panel__icon" src="site_icons_green_samplehex_svg/helmet_icon.svg" alt="" width="1024" height="1024" loading="lazy" decoding="async" fetchpriority="low" aria-hidden="true">
                   </div>
                   <div class="performance-panel__copy">
                     <h3>No specialized framing crew required</h3>
@@ -820,7 +831,7 @@
           <div class="support-stage" data-tab-stage>
             <article class="support-panel is-active" id="support-panel-durability" role="tabpanel" aria-labelledby="support-tab-durability" data-tab-panel>
               <div class="support-panel__body">
-                <img class="support-panel__icon-image" src="assets/img/homeowner-icons/fire-termite.png" alt="" width="92" height="92" aria-hidden="true">
+                <img class="support-panel__icon-image" src="assets/img/optimized/homeowner-fire-termite-184.webp" alt="" width="92" height="92" loading="lazy" decoding="async" fetchpriority="low" aria-hidden="true">
                 <div class="support-panel__copy">
                   <h3>Fire &amp; termite resistance</h3>
                   <p>
@@ -832,7 +843,7 @@
 
             <article class="support-panel" id="support-panel-seismic" role="tabpanel" aria-labelledby="support-tab-seismic" data-tab-panel hidden>
               <div class="support-panel__body">
-                <img class="support-panel__icon-image" src="assets/img/homeowner-icons/earthquake-story.png" alt="" width="92" height="92" aria-hidden="true">
+                <img class="support-panel__icon-image" src="assets/img/optimized/homeowner-earthquake-story-184.webp" alt="" width="92" height="92" loading="lazy" decoding="async" fetchpriority="low" aria-hidden="true">
                 <div class="support-panel__copy">
                   <h3>Earthquake-ready story</h3>
                   <p>
@@ -844,7 +855,7 @@
 
             <article class="support-panel" id="support-panel-comfort" role="tabpanel" aria-labelledby="support-tab-comfort" data-tab-panel hidden>
               <div class="support-panel__body">
-                <img class="support-panel__icon-image" src="assets/img/homeowner-icons/eco-sustainable.png" alt="" width="92" height="92" aria-hidden="true">
+                <img class="support-panel__icon-image" src="assets/img/optimized/homeowner-eco-sustainable-184.webp" alt="" width="92" height="92" loading="lazy" decoding="async" fetchpriority="low" aria-hidden="true">
                 <div class="support-panel__copy">
                   <h3>Eco-friendly &amp; sustainable</h3>
                   <p>
@@ -856,7 +867,7 @@
 
             <article class="support-panel" id="support-panel-sustainability" role="tabpanel" aria-labelledby="support-tab-sustainability" data-tab-panel hidden>
               <div class="support-panel__body">
-                <img class="support-panel__icon-image" src="assets/img/homeowner-icons/mold-mildew.png" alt="" width="92" height="92" aria-hidden="true">
+                <img class="support-panel__icon-image" src="assets/img/optimized/homeowner-mold-mildew-184.webp" alt="" width="92" height="92" loading="lazy" decoding="async" fetchpriority="low" aria-hidden="true">
                 <div class="support-panel__copy">
                   <h3>Mold and mildew protection</h3>
                   <p>
@@ -1010,7 +1021,7 @@
       <div class="footer-brand">
         <a class="brand brand--footer" href="#top" aria-label="ECOLIT home">
           <span class="brand-logo-shell">
-            <img class="brand-logo" src="assets/img/ecolit-logo.svg" alt="ECOLIT" width="197" height="40" loading="lazy">
+            <img class="brand-logo" src="assets/img/ecolit-logo.svg" alt="ECOLIT" width="197" height="40" loading="lazy" decoding="async" fetchpriority="low">
           </span>
         </a>
       </div>
@@ -1037,6 +1048,6 @@
     </div>
   </footer>
 
-  <script src="assets/js/main.js?v=20260414-hero-horizontal" defer></script>
+  <script src="assets/js/main.js?v=20260423-performance-01" defer></script>
 </body>
 </html>
