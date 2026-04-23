@@ -1180,18 +1180,30 @@ p{font-size:var(--fs-body);line-height:1.64;color:var(--muted);text-wrap:pretty}
   align-items:start
 }
 .performance-panel__icon-shell{
+  position:relative;
   display:grid;
   place-items:center;
   width:var(--performance-icon-size);
   aspect-ratio:1;
-  align-self:center
+  align-self:center;
+  isolation:isolate
 }
 .performance-panel__icon-shell::before{
-  content:none
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:22px;
+  background:
+    radial-gradient(circle at 50% 34%,rgba(163,225,75,.28) 0,rgba(163,225,75,.14) 38%,rgba(79,174,50,.06) 72%,rgba(79,174,50,0) 100%),
+    linear-gradient(180deg,rgba(255,255,255,.94),rgba(243,249,235,.98));
+  clip-path:polygon(50% 3%,87% 24%,87% 76%,50% 97%,13% 76%,13% 24%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.82),0 12px 24px rgba(79,174,50,.12);
+  border:1px solid rgba(79,174,50,.12);
+  z-index:-1
 }
 .performance-panel__icon{
-  width:100%;
-  height:100%;
+  width:70%;
+  height:70%;
   object-fit:contain;
   filter:drop-shadow(0 16px 22px rgba(17,163,60,.1))
 }
@@ -1374,6 +1386,22 @@ p{font-size:var(--fs-body);line-height:1.64;color:var(--muted);text-wrap:pretty}
 .footer-links{display:grid;gap:12px}
 .footer-links li,.footer-links a{font-size:15px;line-height:1.64;color:var(--muted)}
 .footer-links a:hover,.footer-links a:focus-visible{color:var(--accent-deep)}
+
+@supports (content-visibility: auto){
+  .deferred-section,
+  .deferred-footer{
+    content-visibility:auto;
+    contain-intrinsic-size:1px 960px
+  }
+  .showcase-section.deferred-section{contain-intrinsic-size:1px 1120px}
+  .path-section.deferred-section{contain-intrinsic-size:1px 980px}
+  .package-section.deferred-section{contain-intrinsic-size:1px 860px}
+  .performance-section.deferred-section{contain-intrinsic-size:1px 820px}
+  .homeowner-section.deferred-section{contain-intrinsic-size:1px 760px}
+  .faq-section.deferred-section{contain-intrinsic-size:1px 780px}
+  .send-plans-section.deferred-section{contain-intrinsic-size:1px 1040px}
+  .deferred-footer{contain-intrinsic-size:1px 220px}
+}
 
 .reveal{opacity:1;transform:none}
 html.js .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
